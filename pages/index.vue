@@ -2,6 +2,7 @@
   <div
     class="h-[20vh] flex items-center justify-between gap-[2vh] bg-blue-950 px-[4vw]"
   >
+    <NuxtLoadingIndicator />
     <h2 class="text-yellow-100 text-[4vh]">Riz</h2>
     <span class="text-[#ffffff61] tracking-widest">BOOKING</span>
   </div>
@@ -89,7 +90,6 @@ async function handleSubmit() {
       body: {
         room: userStore.room,
       },
-      server: false,
     });
     userStore.data = data;
     if (data.data._value === "ERR404") {
