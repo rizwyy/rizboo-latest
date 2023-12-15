@@ -5,10 +5,6 @@ const UserSchema = new Schema({
   email: String,
   password: String,
 });
-const LogSchema = new Schema({
-  email: String,
-  password: String,
-});
 
 const User = mongoose.model("User", UserSchema);
 const Log = mongoose.model("Log", UserSchema);
