@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     let clone = { ...users };
     console.log("clone", clone);
     console.log("try complete");
-    return clone._doc.available;
+    return clone._doc;
   } catch (error) {
     console.log("ERR:", error);
   }

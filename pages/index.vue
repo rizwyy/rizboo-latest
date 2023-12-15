@@ -85,18 +85,14 @@ function resetStateOnClick() {
 async function handleSubmit() {
   resetStateOnClick();
   try {
-    const data = await useFetch("/api/users", {
-      method: "POST",
-      body: {
-        room: userStore.room,
-      },
-    });
+    const { data } = await useAsyncData("item", () =>
+      $fetch("https://dummyjson.com/products")
+    );
     userStore.data = data;
-    if (data.data._value === "ERR404") {
-      alert("please select a room to check");
-      return;
-    }
-    if (data.data._value) {
+
+    console.log(data._rawValue.products[0].brand);
+
+    if (data._rawValue.products[0].brand === "Apple") {
       userStore.availableModal = true;
     } else {
       userStore.notAvailableModal = true;
